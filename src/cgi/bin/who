@@ -1,0 +1,1 @@
+find /var/www/mp3/ipz/ -name timecheck -mmin -60 -exec dirname {} \; | xargs -i cat "{}/username"|sort|uniq

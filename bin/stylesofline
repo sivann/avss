@@ -1,0 +1,14 @@
+#!/bin/csh -f
+
+#reads styles from stylebins and stylenames from allstyles
+
+set basepath="/usr/local/apache2/htdocs/avss/"
+
+set path=($basepath/bin $path)
+set lineno=$1
+
+echo $lineno|printlines $basepath/data/stylebins >/tmp/tmpbin.$$
+cat /tmp/tmpbin.$$| awk 'BEGIN {FS="" } {for (i=0;i<NF;i++) if ($i==1) print i-1}' |printlines $basepath/data/allstyles
+
+
+/bin/rm /tmp/tmpbin.$$

@@ -1,0 +1,11 @@
+Search gia fire:
+
+Se titlous (mono songname, xwris artist)
+
+\-.*fire[^/]*mp3
+
+search/emfanish mono directories:
+cat mp3.db | egrep -i 'sivann' | sed -e 's/[^\/]*mp3//' | uniq
+
+emfanish mono 1ou directory
+cat mp3.db | egrep -i 'sivann' | sed -e 's/\(sivann[^\/]*\/\).*/\1/'|uniq

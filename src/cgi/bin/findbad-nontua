@@ -1,0 +1,1 @@
+find -regex '.*ipz/[^1][^4][^7].*username' -exec cat {} \; | sort |grep -v 147.102| uniq -c | sort -n

@@ -1,0 +1,40 @@
+#!/bin/csh -f
+#sivann
+
+echo -n "original string: "
+set orig="$<"
+if ("$orig" == "") then
+ echo "original=empty, New string will be added at the beggining"
+endif
+echo -n "new string: "
+set new="$<"
+
+
+if ( $#argv && "$1" == "g") then
+  set g="g"
+else
+  set g=""
+endif
+ 
+
+foreach file (*.mp3 *.ogg)
+	set noglob
+	if ("$orig" == "") then
+	  set newfl="$new$file"
+	  set newfl=`echo $newfl|sed 's/ .mp3/.mp3/'`
+	else
+	  set neworig=`/bin/echo "$orig"|sed -e 's/\[//' -e 's/\]//'`
+	  set filen=`/bin/echo "$file"|sed -e 's/\[//' -e 's/\]//'`
+	  set newfl=`echo $filen|sed  "s/$neworig/$new/$g"`
+	endif
+	set newfile=`/bin/echo "$newfl"|tr "_" " "|tr A-Z a-z`
+	echo ""
+	echo -n rename '"'"$file"'"' to '"'"$newfile"'"' "[Y/n]"
+	set ans=$<
+	if ("$ans" != "n") then
+	    /bin/mv "$file" "$newfile"
+	    echo  "Done"
+	    echo ""
+	endif
+
+end

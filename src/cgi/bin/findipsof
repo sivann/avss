@@ -1,0 +1,8 @@
+#!/bin/csh -f
+#sivann
+#ex. findipsof sivann
+#
+
+cd ipz
+grep -l "${1}" */username | cut -d'/' -f1 | xargs /bin/ls -lrtd {}| awk '{printf "%s %02s %s %15s\n",$6,$7,$8,$9}'
+cd -

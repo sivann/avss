@@ -1,0 +1,7 @@
+#!/bin/csh -f
+
+set basepath="/home/www/htdocs/avss/"
+
+cd /MMROOT/audio
+
+/usr/bin/find . -follow -maxdepth 10 -name 00photo.jpg|sort >$basepath/data/photos.txt

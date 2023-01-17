@@ -1,0 +1,20 @@
+#!/bin/tcsh -f
+
+#finds relative groups based on style
+#e.g. findrel "beatles"
+
+set basepath="/home/www/htdocs/avss/"
+set path=("${basepath}"/bin/ $path)
+
+set lineno=`fgrep -n "$1" $basepath/data/stylelist | head -1|cut -d: -f1`
+cat $basepath/data/stylebins|sed -n "$lineno p" >/tmp/refbin.tmp.$$
+#echo $lineno|printlines $basepath/data/stylebins >/tmp/refbin.tmp.$$
+
+#foreach line (`calcrelevance refbin.tmp stylebins | sort -rn | head -20|cut -d: -f2`)
+#  grep -n . stylelist | egrep "^${line}:"|cut -d: -f2
+#end
+#calcrelevance /tmp/refbin.tmp.$$ $basepath/data/stylebins | sort -rn | head -20|cut -d: -f2|printlines $basepath/data/stylelist|cut -d: -f1|sed 's,:/kill-9/sorted,:,' 
+
+calcrelevance /tmp/refbin.tmp.$$ $basepath/data/stylebins | sort -rn | head -20 | awk -F: '{printf ("%s %s\n",$2,$1);}' | printlines $basepath/data/stylelist | cut -d: -f1,2 | sed 's,:/MMROOT/audio,:,'
+
+/bin/rm -f /tmp/refbin.tmp.$$

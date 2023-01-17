@@ -1,0 +1,20 @@
+#!/bin/csh -f
+#sivann
+
+foreach file (`find . -type d -name "[a-zA-Z]*"|sed 's/ /_/g'`)
+	set noglob
+	set forig=`echo $file|sed 's/_/ /g'`
+	set filen=`/bin/echo "$file"|sed -e 's/\[//' -e 's/\]//'`
+	set newfile=`/bin/echo "$filen"|tr "_" " "|tr A-Z a-z`
+	set newfile1=`/bin/echo "$newfile"|sed -e 's/-/ - /g'`
+	set newfile=`/bin/echo "$newfile1"|sed -e 's/  / /g'`
+	echo ""
+	echo -n rename '"'"$forig"'"' to '"'"$newfile1"'"' "[Y/n]"
+	set ans=$<
+	if ("$ans" != "n") then
+	    /bin/mv "$forig" "$newfile"
+	    echo  "Done"
+	    echo ""
+	endif
+
+end

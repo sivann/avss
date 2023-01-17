@@ -1,0 +1,12 @@
+#!/bin/sh
+
+song=`cat $1|cut -d'=' -f2|cut -d'&' -f1|sed 's/.*\///'`
+songpath=`echo $song|sed -e 's/%25/%/g'  -e 's/%2C/,/g' -e 's/%2F/\//g' -e  's/%252F/\//g' -e 's/%20/ /g' -e 's/%26/\&/g' -e 's/%28/\(/g' -e 's/%29/\)/g'  -e 's/%2D/-/g'`
+
+song="$songpath"
+
+#mpg123
+#xterm -geometry 50x10 -title "$song" -e sh -c "(echo $1; echo mpg123 -q -@ $1;  mpg123 -q -@ $1 ; sleep 3 )";
+
+#xaudio
+xterm -geometry 50x10 -title "$song" -e sh -c "(echo $1; echo xaudio -port=line -input=m3u $1;  xaudio -port=line -input=m3u $1 ; sleep 4 )";

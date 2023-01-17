@@ -1,0 +1,5 @@
+#!/bin/sh 
+#make the mp3 list
+cd /kill-9/sorted 
+/usr/bin/find . -follow -maxdepth 10 -name "*.mp3" -print -o -path ./permanent/unsorted -prune > /var/www/mp3/mp3.db  2>/dev/null
+

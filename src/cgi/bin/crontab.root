@@ -1,0 +1,12 @@
+#For mp3 search:
+10 2 * * * /var/www/mp3/makedb
+30 2 * * * /var/www/mp3/cstat.pl
+35 2 * * * /var/www/mp3/statistik
+#and now the styles:
+00 3 * * 3 /var/www/mp3/makeinfofilelist
+30 3 * * 3 /var/www/mp3/makestylelist.pl
+00 4 * * 3 /var/www/mp3/makebins > /dev/null 2>&1
+#40 2 * * * /var/www/mp3/makekwflist
+#50 2 * * * /var/www/mp3/makekwlist.pl
+#and now the SPAM
+23 21 * * * apt-get update && env PATH=/usr/sbin:/usr/bin:/sbin:/bin apt-get -y -u upgrade ; apt-get clean

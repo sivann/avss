@@ -1,0 +1,9 @@
+#!/bin/bash 
+#sivann 2003
+#countplsecs <playlist>
+
+secs=`cat "${1}"| sed  -e 's/%%%.*//' -e 's/^/"/' -e 's/$/"/' | xargs -i /usr/local/bin/mp3info -s '/MMROOT/audio/{}' 2>/dev/null | awk 'BEGIN {FS=":" ; sum=0} {sum += $NF;} END {print sum}' `
+
+size=`cat "${1}"| sed  -e 's/%%%.*//' -e 's/^/"/' -e 's/$/"/' | xargs -i du -sk "/MMROOT/audio/{}" 2>/dev/null | awk 'BEGIN {sum=0} {sum += $1} END {print sum}' `
+
+echo $secs:$size

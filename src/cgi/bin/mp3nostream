@@ -1,0 +1,2 @@
+#!/bin/sh
+xterm -e sh -c "(echo $1; echo mpg123 $1;  mpg123 $1 ; sleep 300 )";

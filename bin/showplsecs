@@ -1,0 +1,5 @@
+#!/bin/bash 
+#sivann 2003
+#showplsecs <playlist>
+
+cat "${1}"| sed -e 's/%%%.*//' -e 's/^/"/' -e 's/$/"/' | xargs -i /usr/local/bin/mp3info -s '/MMROOT/audio/{}' 2>&1 |cut -d: -f3,9,10 

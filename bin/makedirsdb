@@ -1,0 +1,8 @@
+#!/bin/sh 
+#make the directory list
+#sivann 2005
+
+basepath="/home/www/htdocs/avss/"
+cd $basepath/data
+
+cat mp3.db | awk -F/ '{for (i=1;i<NF;i++) printf ("%s/",$i);printf("\n");}' | sort | uniq >dirs.db

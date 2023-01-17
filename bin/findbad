@@ -1,0 +1,4 @@
+#!/bin/csh -f
+
+set basedir="/usr/local/apache2/htdocs/avss/"
+find "${basedir}"data/ipz -name username -print0 | xargs -0 cat | sort | uniq -c | sort -n

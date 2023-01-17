@@ -1,0 +1,2 @@
+#!/bin/bash 
+cat "${1}"| sed -e 's/^/"/' -e 's/$/"/' | xargs -i mp3info -s "/kill-9/sorted/{}" 2>/dev/null | awk 'BEGIN {FS=":" ; sum=0} {sum += $NF} END {print sum}' 

@@ -1,0 +1,3 @@
+#!/bin/csh -f
+set basepath="/usr/local/apache2/htdocs/avss/"
+find $basepath/data/ipz/ -name timecheck -mmin -60 -exec dirname {} \; | xargs -i cat "{}/username"|sort|uniq

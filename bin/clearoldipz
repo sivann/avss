@@ -1,0 +1,6 @@
+#!/bin/csh -f
+#kako. Svhnei palia directories, oxi palia timestamps
+set basedir="/usr/local/apache2/htdocs/avss/"
+
+cd "${basedir}"/data/ipz 
+find . -maxdepth 1 -type d -mtime +100 -exec /bin/rm -fr {} \;

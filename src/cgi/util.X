@@ -1,0 +1,16 @@
+void getword (char *word, char *line, char stop); 
+char *makeword (char *line, char stop); 
+char *fmakeword (FILE *f, char stop, int *cl); 
+void escape_url (char *url); 
+char x2c (char *what); 
+void unescape_url (char *url); 
+void plustospace (char *str); 
+int rind (char *s, char c); 
+void tobasename (char *s); 
+char *basename (const char *name); 
+void cutlast (char *s); 
+int getline (char *s, int n, FILE *f); 
+void send_fd (FILE *f, FILE *fd); 
+void spacetoplus (char *str); 
+void spacetounderscore (char *str); 
+void str_replace (char *needle, char *string, char *haystack); 

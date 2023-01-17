@@ -1,0 +1,25 @@
+#!/bin/tcsh -f
+
+echo "Continue?"
+set ans="$<"
+
+find . -type d>dir.txt
+set lines=`wc -l dir.txt|awk '{print $1}'`
+set count=1
+set here=`pwd`
+set run="$here"/mp3fixni
+
+while ($count<$lines)
+  set dir="`pickline $here/dir.txt $count`"
+  echo "Dir= ${dir}"
+  ls -ld "$here/${dir}"
+  if (! -d  "$here/${dir}" ) then
+    echo "${here}/${dir} not found"
+    #exit
+    set dir=`echo "$dir"|tr A-Z a-z`
+  endif
+  cd "${here}/${dir}"
+  "$run"
+  set count=`expr $count + 1`
+end
+

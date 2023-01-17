@@ -1,0 +1,11 @@
+#!/bin/bash 
+target="/home/www/htdocs/avss/cgi-bin/"
+rm  $target/avssmain.m3u
+rm  $target/avssmain.mp3
+rm  $target/avssmain.ogg
+rm  $target/avssmain.mpitria
+
+cp mp3.m3u $target/avssmain.m3u
+cp mp3.m3u $target/avssmain.mp3
+cp mp3.m3u $target/avssmain.ogg
+cp mp3.m3u $target/avssmain.mpitria

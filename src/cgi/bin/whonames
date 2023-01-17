@@ -1,0 +1,10 @@
+#!/bin/csh -f
+/var/www/mp3/who >/tmp/w.out
+cat /var/www/mp3/passwd|cut -d':' -f 1,3 >/tmp/p.out
+
+foreach uname (`cat /tmp/w.out`)
+  grep $uname /tmp/p.out#|awk -F':' '{printf "%s:%s\n", $1, $2'}
+end
+
+/bin/rm -f /tmp/w.out /tmp/p.out
+

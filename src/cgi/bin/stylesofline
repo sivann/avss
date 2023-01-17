@@ -1,0 +1,12 @@
+#!/bin/csh -f
+
+#reads styles from stylebins and stylenames from allstyles
+
+set path=(/var/www/mp3 $path)
+set lineno=$1
+
+echo $lineno|printlines /var/www/mp3/stylebins >/tmp/tmpbin.$$
+cat /tmp/tmpbin.$$| awk 'BEGIN {FS="" } {for (i=0;i<NF;i++) if ($i==1) print i-1}' |printlines /var/www/mp3/allstyles
+
+
+/bin/rm /tmp/tmpbin.$$

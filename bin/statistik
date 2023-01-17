@@ -1,0 +1,12 @@
+#!/bin/csh -f
+#calculate used/free disk
+
+set basepath="/home/www/htdocs/avss/"
+
+set num=`/usr/bin/wc -l $basepath/data/mp3.db|/usr/bin/awk '{print $1}'`
+set space=`/bin/df |egrep "^\/.*disk[0-3]"| tail -3 | /usr/bin/awk 'BEGIN {tot=0} {tot+=$3}END{print tot/1024}'`
+set free=`/bin/df |egrep "^\/.*disk[0-3]"| tail -3 | /usr/bin/awk 'BEGIN {tot=0} {tot+=$4}END{print tot/1024}'`
+
+echo "$num" >    $basepath/data/statistik.out
+echo "$space" >> $basepath/data/statistik.out
+echo "$free" >>  $basepath/data/statistik.out

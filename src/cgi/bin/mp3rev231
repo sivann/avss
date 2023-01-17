@@ -1,0 +1,11 @@
+#!/bin/csh -f
+
+foreach mp3 (*.mp3)
+  set oldname=`basename "$mp3" .mp3`
+  set newname=`echo $oldname|awk -F' - ' '{printf "%s - %s - %s.mp3",$2,$3,$1}'`
+  echo mv "$mp3" '-------->'  "$newname"  '[Y/n]'
+  set ans=$<
+  if ( "$ans" != "n" ) then
+    mv "$mp3" "$newname" 
+  endif
+end

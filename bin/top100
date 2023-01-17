@@ -1,0 +1,2 @@
+#!/bin/csh -f
+cat ~www/logs/access.log | grep "mp3data" | cut -d'/' -f6- | awk '{printf "/%s\n",$1}' | egrep '\.mp3|\.ogg' | sort | uniq -c | sort -rn | sed 's/ \+//' |head -100|sed 's/%20/ /g'

@@ -1,0 +1,10 @@
+#!/bin/csh -f
+#calculate used/free disk
+
+set num=`/usr/bin/wc -l /var/www/mp3/mp3.db|/usr/bin/awk '{print $1}'`
+set space=`/bin/df |egrep "^\/.*disk[0-2]"| tail -3 | /usr/bin/awk 'BEGIN {tot=0} {tot+=$3}END{print tot/1024}'`
+set free=`/bin/df |egrep "^\/.*disk[0-2]"| tail -3 | /usr/bin/awk 'BEGIN {tot=0} {tot+=$4}END{print tot/1024}'`
+
+echo "$num" >/var/www/mp3/statistik.out
+echo "$space" >>/var/www/mp3/statistik.out
+echo "$free" >>/var/www/mp3/statistik.out

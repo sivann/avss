@@ -1,0 +1,90 @@
+S---------
+DOCUMENT_ROOT=/var/web
+HTTP_ACCEPT=*/*
+HTTP_CONNECTION=close
+HTTP_HOST=theseas.yyy.ece.xxxxxx
+HTTP_ICY_METADATA=1
+HTTP_USER_AGENT=WinampMPEG/2.7
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+REMOTE_ADDR=147.102.1.1
+REMOTE_PORT=36167
+SCRIPT_FILENAME=/usr/lib/cgi-bin/mp3.m3u
+SERVER_ADDR=147.102.1.109
+SERVER_ADMIN=kronos@yyy.ece.xxxxxx
+SERVER_NAME=kronos.yyy.ece.xxxxxx
+SERVER_PORT=80
+SERVER_SIGNATURE=
+SERVER_SOFTWARE=Apache/1.3.22 (Unix) Debian GNU/Linux PHP/4.1.1
+UNIQUE_ID=PGWS7ZNmAW0AADY0A4g
+GATEWAY_INTERFACE=CGI/1.1
+SERVER_PROTOCOL=HTTP/1.0
+REQUEST_METHOD=GET
+QUERY_STRING=mp3data=1&path=/Incoming/sivann/new/rocker1/Andy_%20Horace%20-%20Skylarking.mp3
+REQUEST_URI=/cgi-bin/mp3.m3u?mp3data=1&path=/Incoming/sivann/new/rocker1/Andy_%20Horace%20-%20Skylarking.mp3
+SCRIPT_NAME=/cgi-bin/mp3.m3u
+PWD=/usr/lib/cgi-bin
+E---------
+S---------
+DOCUMENT_ROOT=/var/web
+HTTP_ACCEPT=image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, */*
+HTTP_ACCEPT_ENCODING=gzip, deflate
+HTTP_ACCEPT_LANGUAGE=el
+HTTP_CONNECTION=Keep-Alive
+HTTP_HOST=kronos.yyy.ece.xxxxxx
+HTTP_USER_AGENT=Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Q312461)
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+REMOTE_ADDR=147.102.11.131
+REMOTE_PORT=4318
+SCRIPT_FILENAME=/usr/lib/cgi-bin/mp3.m3u
+SERVER_ADDR=147.102.1.109
+SERVER_ADMIN=kronos@yyy.ece.xxxxxx
+SERVER_NAME=kronos.yyy.ece.xxxxxx
+SERVER_PORT=80
+SERVER_SIGNATURE=
+SERVER_SOFTWARE=Apache/1.3.22 (Unix) Debian GNU/Linux PHP/4.1.1
+UNIQUE_ID=PGWS9JNmAW0AADYzAaA
+GATEWAY_INTERFACE=CGI/1.1
+SERVER_PROTOCOL=HTTP/1.1
+REQUEST_METHOD=GET
+QUERY_STRING=path=./Incoming/tmpal/Xaris%20Alejioy/Ta%20Tsilika%20(CD%201)/
+REQUEST_URI=/cgi-bin/mp3.m3u?path=./Incoming/tmpal/Xaris%20Alejioy/Ta%20Tsilika%20(CD%201)/
+SCRIPT_NAME=/cgi-bin/mp3.m3u
+PWD=/usr/lib/cgi-bin
+E---------
+S---------
+DOCUMENT_ROOT=/var/web
+HTTP_ACCEPT=*/*
+HTTP_CONNECTION=close
+HTTP_HOST=theseas.yyy.ece.xxxxxx
+HTTP_ICY_METADATA=1
+HTTP_RANGE=bytes=115344-
+HTTP_USER_AGENT=WinampMPEG/2.7
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+REMOTE_ADDR=147.102.1.1
+REMOTE_PORT=36202
+SCRIPT_FILENAME=/usr/lib/cgi-bin/mp3.m3u
+SERVER_ADDR=147.102.1.109
+SERVER_ADMIN=kronos@yyy.ece.xxxxxx
+SERVER_NAME=kronos.yyy.ece.xxxxxx
+SERVER_PORT=80
+SERVER_SIGNATURE=
+SERVER_SOFTWARE=Apache/1.3.22 (Unix) Debian GNU/Linux PHP/4.1.1
+UNIQUE_ID=PGWTIpNmAW0AADY1BBA
+GATEWAY_INTERFACE=CGI/1.1
+SERVER_PROTOCOL=HTTP/1.1
+REQUEST_METHOD=GET
+QUERY_STRING=mp3data=1&path=/Incoming/sivann/new/rocker1/Andy_%20Horace%20-%20Skylarking.mp3
+REQUEST_URI=/cgi-bin/mp3.m3u?mp3data=1&path=/Incoming/sivann/new/rocker1/Andy_%20Horace%20-%20Skylarking.mp3
+SCRIPT_NAME=/cgi-bin/mp3.m3u
+PWD=/usr/lib/cgi-bin
+E---------
+
+headers:
+--------------------
+GET /cgi-bin/mp3.m3u?mp3data=1&path=/Incoming/sivann/new/rocker1/Andy_%20Horace%20-%20Skylarking.mp3 HTTP/1.1
+Host: theseas.yyy.ece.xxxxxx
+User-Agent: WinampMPEG/2.7
+Accept: */*
+Icy-MetaData:1
+Range: bytes=112384-
+Connection: close

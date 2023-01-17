@@ -1,0 +1,16 @@
+AVSSDIR=/home/www/htdocs/avss/
+#For mp3 search:
+10 2 * * * $AVSSDIR/bin/makedb
+20 2 * * * $AVSSDIR/bin/cstat.pl
+30 2 * * * $AVSSDIR/bin/statistik
+40 2 * * * $AVSSDIR/bin/makedirsdb
+50 2 * * * $AVSSDIR/bin/dirstat.pl
+#and now the photos:
+55 2 * * 3 $AVSSDIR/bin/mkphotodb
+#and now the styles:
+10 3 * * 3 $AVSSDIR/bin/makeinfofilelist
+30 3 * * 3 $AVSSDIR/bin/makestylelist.pl
+00 4 * * 3 $AVSSDIR/bin/makebins > /dev/null 2>&1
+00 5 * * 3 $AVSSDIR/bin/makebandofstyle 
+#40 2 * * * $AVSSDIR/bin/makekwflist
+#50 2 * * * $AVSSDIR/bin/makekwlist.pl

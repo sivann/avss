@@ -1,0 +1,14 @@
+#!/bin/tcsh -f
+#sivann 2003
+#example  ./lastsongs
+set path=(/bin /usr/bin /usr/local/bin $path)
+set pid="$$"
+
+if ("$1" == "") then 
+  set myip="."
+else
+  set myip="$1"
+endif
+
+tail -2000 /var/log/apache2/access.log | egrep "^$myip.*mp3....=1.*(\.mp3|\.ogg).*HTTP" |fgrep -v mpitria| sed -e 's/\([0-9.]\+\).* \[\(.*\)\] .*path=\([^ ]*\).*HTTP.*/\1#\2#\3/' | tail -200 | sed 's,#\(..\)\/\(...\)\/20..:\(..\):\(..\):\(..\) ...00,#\1 \2#\1\3\4\5,' | sort -rn -t '#' -k1,3 |  tr '#' ' ' |uniq -f 4 |tr ' ' '#'| sort -rn -t '#' -k3|grep -v '/"'
+

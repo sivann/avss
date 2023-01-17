@@ -1,0 +1,31 @@
+#!/bin/csh -f
+#sivann
+setenv XMCD_LIBDIR /usr/X11R6/lib/X11/xmcd
+set namfile=autoname."$$"
+cda on
+echo ""
+echo -n "Insert CD in CDROM and press enter.."
+set ans=$<
+echo -n "Wait.."
+cda toc > $namfile
+cda off
+
+
+set artist=`cat $namfile | sed -e '2 p' -e '1,$d' | cut -d'/' -f1`
+set album=`cat $namfile | sed -e '2 p' -e '1,$d' | cut -d'/' -f2`
+set lines=`wc -l $namfile|cut -d' ' -f6`
+set lines1=`/usr/bin/expr $lines  - 1`
+set count=1
+
+echo artist=$artist
+echo album=$album
+#echo lines=$lines
+#echo lines1=$lines1
+
+cat "$namfile" | sed -e '1,3d' -e"$lines1,$lines d" | cut -d' ' -f5- >"$namfile".tmp
+
+echo -n "Output filename: "
+set ans=$<
+
+mv "$namfile".tmp $ans
+rm "$namfile"

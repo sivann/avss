@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+
+$t = <>;
+chop $t;
+
+print "".localtime $t,"\n";

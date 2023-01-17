@@ -1,0 +1,40 @@
+#!/bin/csh -f
+#sivann 03
+#ftiaxnei style bins apo ta styles gia to relevance search
+#thelei treximo otan allajoun ta styles kai ta directories, 
+#typically once a month
+
+cd /var/www/mp3/ 
+
+set lines=`wc -l stylelist|awk '{print $1}'`
+set count=1
+cat stylelist|sed -e "s/'/ /g">stylelist.tmp
+
+/bin/rm -f stylebins
+cat stylelist.tmp | cut -d: -f2 | awk 'BEGIN {FS=", "; RS=", ";} {print $1}' | sort | uniq >allstyles
+
+set styleno=`wc -l allstyles|awk '{print $1}'`
+
+echo "$styleno unique styles found"
+
+while ($count<$lines)
+  set line=`cat stylelist.tmp|sed -e "$count p" -e '1,$d'`
+  #set band=`echo $line|cut -d: -f1`
+  set styles=`echo $line|/usr/bin/cut -d: -f2`
+
+  cat stylelist.tmp|sed -e "$count p" -e '1,$d'|/usr/bin/cut -d: -f1>band.tmp
+
+  echo $styles|/usr/bin/cut -d: -f2 | awk 'BEGIN {FS=", "; RS=", ";} {print $1}' | xargs -i grep -n '^{}$' allstyles | /usr/bin/cut -d: -f1|sort -n| awk 'BEGIN {for (i=0;i<'"$styleno"';i++) bins[i]=0;} {bins[$1]=1} END {for (i=0;i<'"$styleno"';i++) printf "%d",bins[i] ;printf "\n"}' >bins.tmp
+
+  #paste -d ':' band.tmp bins.tmp >>stylebins
+  cat bins.tmp >>stylebins
+
+  set count=`expr  $count + 1`
+  /bin/echo -e "\r                              \r\c"
+  /bin/echo -e "$count/$lines\c"
+end
+
+/bin/rm band.tmp
+/bin/rm bins.tmp
+/bin/rm stylelist.tmp
+echo ""

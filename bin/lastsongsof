@@ -1,0 +1,30 @@
+#!/bin/tcsh -f
+#sivann 2003
+#san lastsongs alla epistrefei kai username
+#example  ./lastsongsof 147.102.11.130
+set path=(/bin /usr/bin /usr/local/bin $path)
+set pid="$$"
+
+if ("$1" == "") then 
+  set myip="."
+else
+  set myip="$1"
+endif
+
+#egrep "^$myip.*mp3data.*(\.mp3|\.ogg)" ~www/logs/apache/access.log | sed -e 's/\([0-9.]\+\).* \[\(.*\)\] .*path=\([^ ]*\).*/\1#\2#\3/' | tail -100|uniq -t '#' -f 2|sed 's/ /%20/g'>/tmp/$pid.tmp
+tail -1000 ~www/logs/apache/access.log|egrep "^$myip.*mp3data.*(\.mp3|\.ogg)" | sed -e 's/\([0-9.]\+\).* \[\(.*\)\] .*path=\([^ ]*\).*/\1#\2#\3/' | tail -100|uniq -t '#' -f 2|sed 's/ /%20/g'>/tmp/$pid.tmp
+
+
+set count=1
+#foreach line (`/usr/bin/perl  -e 'print reverse <>' /tmp/$pid.tmp`)
+foreach line (`tac /tmp/$pid.tmp`)
+  #echo "line=$line"
+  set ip=`echo "$line" | cut -d'#' -f1`
+  set tim=`echo "$line" | cut -d'#' -f2|sed 's/%20/ /'`
+  set username=`cat $basepath/data/ipz/$ip/username`
+  set song=`echo "$line" | cut -d'#' -f3|sed -e 's/%20/ /g' -e 's/#/ /g' -e 's/^\.//' -e 's,//,/,g'`
+  echo "${tim}#${username}#${song}" 
+end
+
+
+/bin/rm /tmp/$pid.tmp

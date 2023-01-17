@@ -1,0 +1,19 @@
+apo streamline http://streamline.sourceforge.net/:
+
+HTTP/1.1 200 OK
+Date: Mon, 06 Jun 2005 15:55:20 GMT
+Server: Apache/2.0.48 (Linux/SuSE)
+X-Powered-By: PHP/4.3.8
+Set-Cookie: PHPSESSID=d88b6327820a1aa239712f225aa9a83b; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Content-Disposition: filename="simonfreaked_may.mp3.m3u"
+Content-Length: 114
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: audio/x-mpegurl
+
+#EXTM3U
+#EXTINF:3738,0 - simonfreaked_may.mp3
+http://music.kammerl.de/stream/freaked/freaked/simonfreaked_may.mp3

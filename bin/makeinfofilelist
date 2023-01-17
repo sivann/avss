@@ -1,0 +1,7 @@
+#!/bin/sh 
+#make the kw file list
+
+basepath="/home/www/htdocs/avss/"
+
+cd /MMROOT/audio 
+find /MMROOT/audio -follow -maxdepth 11 -name ".*.info" > $basepath/data/infofiles

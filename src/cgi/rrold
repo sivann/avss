@@ -1,0 +1,10 @@
+#!/bin/csh -f
+strip mp3.m3u
+sup rm  ~www/cgi-bin/mp3.m3u
+sup cp ~dalk/develop/cgi/mp3/mp3.m3u ~www/cgi-bin/mp3.m3u
+
+sup rm  ~www/cgi-bin/mp3.mp3
+sup cp ~dalk/develop/cgi/mp3/mp3.m3u ~www/cgi-bin/mp3.mp3
+
+sup rm  ~www/cgi-bin/mp3.mpitria
+sup cp ~dalk/develop/cgi/mp3/mp3.m3u ~www/cgi-bin/mp3.mpitria

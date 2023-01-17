@@ -1,0 +1,13 @@
+AVSSDIR=/usr/local/apache2/htdocs/avss/
+export AVSSDIR
+
+$AVSSDIR/bin/makedb
+$AVSSDIR/bin/cstat.pl
+$AVSSDIR/bin/statistik
+$AVSSDIR/bin/makedirsdb
+$AVSSDIR/bin/dirstat.pl
+$AVSSDIR/bin/mkphotodb
+$AVSSDIR/bin/makeinfofilelist
+$AVSSDIR/bin/makestylelist.pl
+$AVSSDIR/bin/makebins
+$AVSSDIR/bin/makebandofstyle

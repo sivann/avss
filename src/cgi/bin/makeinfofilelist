@@ -1,0 +1,4 @@
+#!/bin/sh 
+#make the kw file list
+cd /kill-9/sorted 
+find /kill-9/sorted -follow -maxdepth 11 -name ".*.info" > /var/www/mp3/infofiles 

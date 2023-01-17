@@ -1,0 +1,9 @@
+#!/bin/tcsh -f
+#sivann
+#ex. findipsof sivann
+#
+
+cd /usr/local/apache2/htdocs/avss/data/ipz
+#grep -l "${1}" */username | cut -d'/' -f1 | xargs /bin/ls -lrtd | awk '{printf "%s %02s %5s %-15s\n",$6,$7,$8,$9}'
+grep -l "${1}" */username | cut -d'/' -f1 | awk 'BEGIN {ORS=" "} {printf "%s/timecheck ",$1}' | xargs ls -lrt | sed -e 's/.* 0 //' -e 's/\/timecheck//'
+cd -

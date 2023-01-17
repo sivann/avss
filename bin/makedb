@@ -1,0 +1,8 @@
+#!/bin/sh 
+#make the mp3 list
+#sivann 2003
+basepath="/home/www/htdocs/avss/"
+
+cd /MMROOT/audio 
+#/usr/bin/find . -follow -maxdepth 10 \( -regex '.*\.mp3$' -o -regex '.*ogg' \) -print >$basepath/data/mp3.db 2>/dev/null
+/usr/bin/find . -follow -xtype f -maxdepth 10 \( -regex '.*\.mp3$' -o -regex '.*ogg' \) -print >$basepath/data/mp3.db 2>/dev/null

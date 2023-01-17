@@ -1,0 +1,13 @@
+#!/bin/csh -f
+
+echo -n "text file with names:" 
+set namfile=$<
+
+set count=1
+foreach mp3 (`ls *.mp3|sort -n`)
+  set songname=`cat $namfile | sed -e "$count p" -e '1,$d'`
+  echo mv "$mp3" TO  "$songname"" - ""$count".mp3
+  set ans=$<
+  mv "$mp3" "$songname"" - ""$count".mp3
+  set count=`expr  $count + 1`
+end

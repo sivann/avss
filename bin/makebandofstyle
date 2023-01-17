@@ -1,0 +1,25 @@
+#!/bin/tcsh -f
+#sivann 04
+
+set basepath="/home/www/htdocs/avss/"
+cd $basepath/data
+set path=($path $basepath/bin)
+
+/bin/cp /dev/null bandofstyle
+
+set stylecount=`wc -l allstyles|awk '{print $1}'`
+set cnt=1
+
+while ($cnt <= $stylecount)
+  set stylename=`awk "{if (NR==$cnt)"' printf("%s",$0);}' allstyles`
+  set bandcount=`egrep '(, |:)'"$stylename"'(,|$)' stylelist |wc -l|awk '{print $1}'`
+  egrep '(, |:)'"$stylename"'(,|$)' stylelist | cut -d: -f1 | awk 'BEGIN {RS="\n" ;ORS="@";} {print}'| sed -e 's,/MMROOT/audio,,g' -e 's/@$//' >/tmp/bands.tmp
+  printf  "${stylename}:${bandcount}:" >>bandofstyle
+  cat /tmp/bands.tmp >> bandofstyle
+  echo "" >>bandofstyle
+
+  set cnt=`expr $cnt + 1`
+end
+
+
+

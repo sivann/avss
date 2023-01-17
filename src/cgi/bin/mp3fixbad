@@ -1,0 +1,11 @@
+#!/bin/csh -f
+
+echo -n 'Field:'
+set field=$<
+foreach mp3 (*.mp3)
+  set songname=` basename "$mp3" .mp3`
+  set count=`echo $songname|cut -d' ' -f$field`;
+  echo mv "$mp3" TO  "$songname"" - ""$count".mp3
+  set ans=$<
+  mv "$mp3" "$songname"" - ""$count".mp3
+end
